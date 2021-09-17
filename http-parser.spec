@@ -1,6 +1,6 @@
 Name:           http-parser
 Version:        2.9.4
-Release:        1
+Release:        2
 Summary:        HTTP request/response parser for C
 
 License:        MIT
@@ -52,7 +52,7 @@ foreach x : [['http_parser',        ['-DHTTP_PARSER_STRICT=0']],
   test('test-@0@'.format(x.get(0)),
        executable('test-@0@'.format(x.get(0)), 'test.c',
                   c_args : x.get(1), link_with : lib),
-                  timeout : 60)
+                  timeout : 300)
 endforeach
 EOF
 
@@ -82,6 +82,9 @@ EOF
 %doc AUTHORS README.md
 
 %changelog
+* Fri Sep 17 2021 xinminst <xuzhiling19991120@163.com> - 2.9.4-2
+- extend timeout limit
+
 * Tue Jun 23 2020 hanzhijun <hanzhijun1@huawei.com> - 2.9.4-1
 - update to 2.9.4
 
